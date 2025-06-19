@@ -12,5 +12,10 @@ class MainActivity : AppCompatActivity() {
         val editTextInput = findViewById<EditText>(R.id.editTextInput)
         val buttonCheck = findViewById<Button>(R.id.buttonCheck)
         val textResult = findViewById<TextView>(R.id.textResult)
+
+        buttonCheck.setOnClickListener {
+            val input = editTextInput.text.toString()
+            textResult.text = "Вы ввели: $input"
+        }
     }
 }
