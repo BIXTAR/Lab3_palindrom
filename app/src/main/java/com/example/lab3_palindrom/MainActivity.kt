@@ -15,7 +15,15 @@ class MainActivity : AppCompatActivity() {
 
         buttonCheck.setOnClickListener {
             val input = editTextInput.text.toString()
-            textResult.text = "Вы ввели: $input"
+            val cleaned = input.filter { it.isLetter() }.lowercase()
+            val isPalindrome = cleaned == cleaned.reversed()
+
+            textResult.text = if (input.isEmpty()) {
+                "Введите строку"
+            } else {
+                if (isPalindrome) "Это палиндром!" else "Это не палиндром."
+            }
         }
+
     }
 }
